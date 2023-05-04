@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+     map<int,int> m;
+     vector<int> v;
+     for(auto x:arr)
+     m[x]++;
+
+     for(int i=1;i<=arr[arr.size()-1]+k;i++)
+     {
+           if(m.find(i)==m.end()){
+               v.push_back(i);
+        }
+     }
+     return v[k-1];
+    }
+};
