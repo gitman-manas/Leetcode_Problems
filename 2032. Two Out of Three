@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+    map<int,int> m1,m2,m3;
+    for(auto x:nums1)
+    m1[x]++;    
+    for(auto x:nums2)
+    m2[x]++;
+    for(auto x:nums3)
+    m3[x]++;
+    set<int> k;
+    for(auto x:m1)
+    {
+        for(auto y:m2)
+        {
+            if(x.first==y.first && x.second>0)
+            {
+                k.insert(x.first);
+                x.second=0;
+            }
+            for(auto z:m3)
+            {
+                if(x.first==z.first || y.first==z.first)
+                {
+                    k.insert(z.first);
+                z.second=0;
+                }
+            }
+        }
+    }
+    vector<int> v;
+    for(auto x:k)
+    v.push_back(x);
+    return v;
+    }
+};
