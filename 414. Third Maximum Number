@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+    map<int,int> mp;
+    vector<int> k;
+    for(int i=0;i<nums.size();i++)
+    mp[nums[i]]++;
+    for(auto x:mp)
+    {
+            if(x.second>0)
+            k.push_back(x.first);
+    }
+    sort(k.begin(),k.end());
+    if(k.size()<=2)
+    {
+        return k[k.size()-1];
+    }
+    return k[k.size()-3];
+         }
+};
