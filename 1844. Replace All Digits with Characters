@@ -1,0 +1,21 @@
+class Solution {
+public:
+    char shift(char x,int j)
+    {
+        for(int i=0;i<j;i++)
+        x=x+1;
+        return x;
+    }
+    string replaceDigits(string s) {
+        string a="";
+        for(int i=0;i<s.size();i+=2)
+        {
+            a+=s[i];
+            a+=shift(s[i],(s[i+1]-48));
+        }
+        if(a.size()==s.size())
+        return a;
+        a.pop_back();
+        return a;
+    }
+};
