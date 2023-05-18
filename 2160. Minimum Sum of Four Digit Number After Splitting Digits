@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int minimumSum(int num) {
+    vector<int> k;
+    while(num>0)
+    {
+        k.push_back(num%10);
+        num=num/10;
+    }
+    sort(k.begin(),k.end());
+    int s=((k[0]*10) + k[2])+ ((k[1]*10) + k[3]);
+    return s;
+    }
+};
