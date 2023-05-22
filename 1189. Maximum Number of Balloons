@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int maxNumberOfBalloons(string text) {
+    map<char,int> m1;
+    for(int i=0;i<text.size();i++)
+    {
+        m1[text[i]]+=1;
+    }   
+    string k="lloo";
+    if(k==text)
+    return 0;
+    int b,a,l,o,n,c=0; 
+    for(auto x: m1)
+    {
+            
+            if(x.first=='b')
+            b=x.second;
+            else if(x.first=='a')
+            a=x.second;
+            else if(x.first=='l')
+            l=x.second;
+            else if(x.first=='o')
+            o=x.second;
+            else if(x.first=='n')
+            n=x.second;
+    }
+        while( b>0 && a>0 && l>=2 && o>=2 && n>0)
+        {
+            b=b-1;
+            a=a-1;
+            l=l-2;
+            o=o-2;
+            n=n-1;
+            c++;
+        }
+    return c; 
+    }
+};
