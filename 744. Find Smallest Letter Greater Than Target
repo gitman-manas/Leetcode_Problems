@@ -1,0 +1,12 @@
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& l, char target) {
+    sort(l.begin(),l.end());
+    for(auto x:l)
+    {
+        if(x>target)
+        return x;
+    }
+    return l[0];
+    }
+};
