@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int kItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int key) {
+        int s=0;
+        vector<int> k;
+        while(numOnes--)
+        k.push_back(1);
+        while(numZeros--)
+        k.push_back(0);
+        while(numNegOnes--)
+        k.push_back(-1);
+        for(int i=0;i<key;i++)
+        s+=k[i];
+        return s;
+    }
+};
