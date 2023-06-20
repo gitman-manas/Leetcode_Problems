@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
+    int c=0;
+    map<int,int> mp1,mp2;
+    vector<int> ans;
+    for(int i=0;i<A.size();i++)
+    {
+       mp1[A[i]]++;
+       mp2[B[i]]++;
+       c=0;
+       for(auto x:mp1)
+       {
+         for(auto y:mp2)
+         {
+             if(x.first==y.first && x.second==y.second)
+             c++;
+         }
+       }
+       ans.push_back(c);
+    }    
+    return ans;
+    }
+};
