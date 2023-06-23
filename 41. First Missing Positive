@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+    map<int,int> mp;
+    int v=0,min=INT_MAX,max=INT_MIN;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]>0){
+            v++;
+        if(nums[i]<min)
+        min=nums[i];
+        if(nums[i]>max)
+        max=nums[i];
+        mp[nums[i]]+=1;}
+    }
+    int i=min;   
+    if(v==0)
+    return 1;
+    if(min>1)
+    return 1; 
+    
+    else{
+            for(auto x:mp){
+                if(x.first!=i){
+                 return i;}
+                 i++;
+                
+            }
+        }
+        return i;
+    }
+};
