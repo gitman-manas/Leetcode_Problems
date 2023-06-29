@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int distributeCandies(vector<int>& nums) {
+     map<int,int> m1;
+    int d=nums.size()/2;
+     for(int x=0;x<nums.size();x++)
+     {m1[nums[x]]+=1;}
+    if(d<m1.size())
+    return d;
+    else
+    return m1.size();   
+    }
+};
